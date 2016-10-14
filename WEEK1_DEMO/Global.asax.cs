@@ -5,16 +5,28 @@ using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Routing;
+using System.Web.Optimization;
 
 
 namespace WEEK1_DEMO
 {
-    public class Global : System.Web.HttpApplication
-    {
-        protected void Application_Start(object sender, EventArgs e)
-        {
-            
-                
-        }
-    }
+	public class Global : System.Web.HttpApplication
+	{
+		protected void Application_Start(object sender, EventArgs e)
+		{
+			RegisterRoutes(RouteTable.Routes);
+				
+		}
+
+
+
+		public static void RegisterRoutes(RouteCollection routes)
+		{
+
+		}
+
+
+
+
+	}
 }
