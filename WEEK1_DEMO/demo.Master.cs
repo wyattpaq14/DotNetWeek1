@@ -11,7 +11,19 @@ namespace WEEK1_DEMO
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                #region nav
 
+
+
+
+
+                #endregion
+
+
+
+            }
         }
     }
 }
