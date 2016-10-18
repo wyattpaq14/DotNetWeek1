@@ -30,15 +30,17 @@ namespace WEEK1_DEMO
             }
         }
 
-        private void removeItem()
-        {
-            ddlItems.Items.RemoveAt(ddlItems.Items.Count - 1);
-            lblItemCount.Text = string.Concat("Number of Items: " + ddlItems.Items.Count.ToString());
-        }
+   
 
         protected void cbxDisable_CheckedChanged(object sender, EventArgs e)
         {
             btnItems.Enabled = (cbxDisable.Checked)? false : true;
+        }
+
+        protected void btnItems_Click(object sender, EventArgs e)
+        {
+            ddlItems.Items.RemoveAt(ddlItems.Items.Count - 1);
+            lblItemCount.Text = string.Concat("Number of Items: " + ddlItems.Items.Count.ToString());
         }
     }
 }
