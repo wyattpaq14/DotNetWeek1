@@ -23,7 +23,6 @@ namespace WEEK1_DEMO
 		public static void RegisterRoutes(RouteCollection routes)
 		{
             routes.MapPageRoute("Home", "Home", "~/Default.aspx");
-            routes.MapPageRoute("Test-Page", "Nested-Folder/Test-Page", "~/webpage2.aspx");
 
 
 		}
