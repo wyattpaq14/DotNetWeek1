@@ -13,5 +13,22 @@ namespace WEEK1_DEMO
         {
 
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            app_user au = app_user.Login(txtUsername.Text.Trim(), txtPassword.Text.Trim());
+            lblSalt.Text = au.Salt;
+            lblPwd.Text = txtPassword.Text.Trim();
+            lblHashedPw.Text = au.HashedPwd;
+               
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            app_user au = app_user.Login(txtUsername.Text.Trim(), txtPassword.Text.Trim());
+            lblSalt.Text = au.Salt;
+            lblPwd.Text = txtPassword.Text.Trim();
+            lblHashedPw.Text = au.HashedPwd;
+        }
     }
 }
