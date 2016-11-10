@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/demo.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WEEK1_DEMO.Login" EnableEventValidation="true" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/demo.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WEEK1_DEMO.Login" EnableEventValidation="false" %>
 <asp:Content ID="loginForms" ContentPlaceHolderID="CPHmain" runat="server">
 
     <%--username validator, textbox and label--%>
