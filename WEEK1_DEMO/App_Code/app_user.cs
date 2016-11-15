@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
 using System.Security.Cryptography;
+using System.Data.SqlClient;
 
 namespace WEEK1_DEMO
 {
@@ -13,6 +16,20 @@ namespace WEEK1_DEMO
         public app_user()
         {
             this.Salt = CreateSalt();
+        }
+
+        public app_user(string email)
+        {
+            DataTable dt = getUser(email);
+            if (dt.Rows.Count > 0)
+            {
+                this.UserId = (int)dt.Rows[0]["user_id"];
+                this.email = dt.Rows[0]["user_email"].ToString();
+                this.Salt = dt.Rows[0]["user_salt"].ToString();
+                this.FirstName = dt.Rows[0]["user_first"].ToString();
+                this.LastName = dt.Rows[0]["user_last"].ToString();
+                this.HashedPwd = dt.Rows[0]["user_pwd"].ToString();
+            }
         }
 
         #endregion
@@ -31,7 +48,7 @@ namespace WEEK1_DEMO
         }
 
 
-        private static string CreatePasswordHash(string salt, string pwd)
+        public static string CreatePasswordHash(string salt, string pwd)
         {
             string saltAndPwd = string.Concat(salt, pwd);
             // Create a new instance of the hash crypto service provider.
@@ -53,12 +70,55 @@ namespace WEEK1_DEMO
             au.LastName = "password";
             au.HashedPwd = CreatePasswordHash(au.Salt, freeTxtPwd);
 
+
             return au;
 
 
 
         }
 
+        public static DataTable getUser(string email)
+        {
+            SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["SE256_Paquin"].ConnectionString);
+            SqlCommand cmd = new SqlCommand("users_getByEmail", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter pEmail = new SqlParameter("@user_email", SqlDbType.VarChar);
+            pEmail.Value = email;
+            cmd.Parameters.Add(pEmail);
+
+
+            //missing line
+
+
+            DataTable dt = new DataTable();
+
+
+            try
+            {
+                cn.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+
+            catch
+            {
+
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+
+
+
+            
+
+
+
+            return dt;
+
+        }
         #endregion
 
         #region properties
@@ -72,6 +132,9 @@ namespace WEEK1_DEMO
         public string Salt { get; set; }
 
         public string HashedPwd { get; set; }
+        public string email { get; set; }
+
+        public bool validLogin { get; set; }
 
         #endregion
 
