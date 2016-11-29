@@ -20,9 +20,10 @@ namespace WEEK1_DEMO
 
 
 
-		public static void RegisterRoutes(RouteCollection routes)
-		{
+        public static void RegisterRoutes(RouteCollection routes)
+        {
             routes.MapPageRoute("Home", "Home", "~/Default.aspx");
+            routes.MapPageRoute("tabel", "tabels/tabele/{tbl_id}", "~/tabel.aspx", false, new RouteValueDictionary { { "tbl_id", "0" }});
 
 
 		}

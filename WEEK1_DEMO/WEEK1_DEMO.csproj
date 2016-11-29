@@ -135,6 +135,7 @@
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="tabel.aspx" />
+    <Content Include="tabels.aspx" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Web.Debug.config">
@@ -197,6 +198,13 @@
     </Compile>
     <Compile Include="signin.aspx.designer.cs">
       <DependentUpon>signin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tabels.aspx.cs">
+      <DependentUpon>tabels.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tabels.aspx.designer.cs">
+      <DependentUpon>tabels.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

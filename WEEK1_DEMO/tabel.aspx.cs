@@ -11,7 +11,7 @@ namespace WEEK1_DEMO
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int tblId = 1;
+            int tblId = Convert.ToInt32(RouteData.Values["tbl_id"]);
 
             WEEK1_DEMO.App_Code.table tbl = new WEEK1_DEMO.App_Code.table(tblId);
 
