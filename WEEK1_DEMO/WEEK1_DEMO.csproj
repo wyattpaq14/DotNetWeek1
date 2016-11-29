@@ -134,6 +134,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="tabel.aspx" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Web.Debug.config">
@@ -157,7 +158,14 @@
   <ItemGroup>
     <Compile Include="App_Code\app_user.cs" />
     <Compile Include="App_Code\Menu.cs" />
-    <Content Include="App_Code\table.cs" />
+    <Compile Include="tabel.aspx.cs">
+      <DependentUpon>tabel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tabel.aspx.designer.cs">
+      <DependentUpon>tabel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\table.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
